@@ -1,4 +1,4 @@
-import{returnNumber} from './util.js';
+import{getRandomNumber} from './util.js';
 
 const messages=['Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -21,32 +21,37 @@ const descriptions =[
   'фото3',
   'фото4',
 ];
-const numberForId=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25',];
-const countPhotos=25;
+
+const COUNT_PHOTOS=5;
+const COUNT_COMMENTS = 3;
 let i =0;
-let j=0;
+let j=1;
 
 const getRandomArrayElement=(elements)=>{
-    return elements[returnNumber(0,elements.length-1)]
+    return elements[getRandomNumber(0,elements.length-1)]
     };
 
-const createNewComment=()=>{
-  return {
-    id:returnNumber(1,200),
-    avatar:`img/avatars/user0${returnNumber(0,8)}.png`,
+const createNewComments=()=>{
+  const comments = [];
+for(let i =0;i < COUNT_COMMENTS ;i++){
+  const comment = {
+    id:getRandomNumber(1,200),
+    avatar:`img/avatars/avatar-${getRandomNumber(1,6)}.png`,
     message:getRandomArrayElement(messages),
     name:getRandomArrayElement(names),
   }
+  comments.push(comment);
+} return comments
 };
 const createNewPhoto =()=>{
   return {
-    id:numberForId[i++],
-    url:`photos/${numberForId[j++]}.jpg`,
+    id:i++,
+    url:`photos/${j++}.jpg`,
     description:getRandomArrayElement(descriptions),
-    likes:returnNumber(15,200),
-    comments:createNewComment(),
+    likes:getRandomNumber(15,200),
+    comments:createNewComments(),
   }
 };
-const keksoPhotos= new Array(countPhotos).fill(null).map(()=>createNewPhoto());
+const keksoPhotos= new Array(COUNT_PHOTOS).fill(null).map(()=>createNewPhoto());
 
 console.log(keksoPhotos);
