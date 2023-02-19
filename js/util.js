@@ -12,6 +12,8 @@ export const getRandomNumber = (min,max) => {
 
 export const checkLengthStr = (str,maxLength) => str.length <= maxLength;
 
-
+export const getRandomArrayElement=(elements)=>{
+  return elements[getRandomNumber(0,elements.length-1)]
+};
 
 
