@@ -1,30 +1,9 @@
 import { createNewPhotos } from './data.js';
 
-
 const tamplatePhotos = document.querySelector('#picture').content.querySelector('.picture');
 const listPhotos = document.querySelector('.pictures');
 
-/*
-const uploadFile =document.querySelector('#upload-file');
-const uploadCancel =document.querySelector('#upload-cancel');
-const body = document.querySelector('body');
-const formaUploadImage = document.querySelector('.img-upload__overlay');
-uploadFile.addEventListener('change',() =>{
-  body.classList.add('modal-open');
-  formaUploadImage.classList.remove('hidden');
-});
-
-uploadCancel.addEventListener('change',() => {
-  body.classList.remove('modal-open');
-  formaUploadImage.classList.add('hidden');
-});
-
-document.addEventListener('click',() => {
-
-});*/
-
 const newPhotos = createNewPhotos();
-
 
 const createPreview = ({url,comments,likes}) => {
   const photoElement = tamplatePhotos.cloneNode(true);
@@ -41,7 +20,7 @@ const createPreviews = () => {
   });
   listPhotos.appendChild(ListPhotosFragment);
 };
-createPreviews();
+
 export {createPreviews};
 
 
