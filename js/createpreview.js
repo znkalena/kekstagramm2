@@ -20,7 +20,7 @@ const createPreviews = () => {
   });
   listPhotos.appendChild(ListPhotosFragment);
 };
-
-export {createPreviews};
+createPreviews();
+export {createPreviews,newPhotos};
 
 

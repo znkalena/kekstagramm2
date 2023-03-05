@@ -14,6 +14,7 @@ const openUploadFile = () => {
       evt.preventDefault();
       body.classList.remove('modal-open');
       formaUploadImage.classList.add('hidden');
+      uploadFile.textContent ='';
     }
   })};
 
@@ -21,6 +22,7 @@ const closeUploadFile =() => {
   body.classList.remove('modal-open');
   formaUploadImage.classList.add('hidden');
 };
+
 uploadFile.addEventListener('click',() =>{
   openUploadFile();
   createPreviews ();
@@ -28,4 +30,5 @@ uploadFile.addEventListener('click',() =>{
 
 uploadCancel.addEventListener('click',() => {
   closeUploadFile();
+  uploadFile.textContent ='';
 });

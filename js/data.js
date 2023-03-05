@@ -23,7 +23,9 @@ const descriptions =[
 ];
 
 const COUNT_PHOTOS=25;
-const COUNT_COMMENTS = 3;
+const COUNT_COMMENTS = 4;
+export const STEP_CHANGE =25;
+
 let i =0;
 let j=1;
 
@@ -32,7 +34,7 @@ const createNewComments=()=>{
   for(let i =0;i < COUNT_COMMENTS ;i++){
     const comment = {
       id:getRandomNumber(1,200),
-      avatar:`img/avatars/avatar-${getRandomNumber(1,6)}.png`,
+      avatar:`img/avatar-${getRandomNumber(1,6)}.png`,
       message:getRandomArrayElement(messages),
       name:getRandomArrayElement(names),
     }
