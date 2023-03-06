@@ -1,4 +1,6 @@
+import { choiceEffect } from './choiceModalEffect.js';
 import { createPreviews } from './createpreview.js';
+import { changeSizePreview} from './modalPhotoSize.js';
 import { isEventEsc } from './util.js';
 
 const uploadFile =document.querySelector('#upload-file');
@@ -26,6 +28,8 @@ const closeUploadFile =() => {
 uploadFile.addEventListener('click',() =>{
   openUploadFile();
   createPreviews ();
+  changeSizePreview();
+  choiceEffect();
 });
 
 uploadCancel.addEventListener('click',() => {

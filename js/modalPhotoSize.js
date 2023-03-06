@@ -5,23 +5,24 @@ const scaleControlSmaller = imgUploadScale.querySelector('.scale__control--small
 const scaleControlBigger = imgUploadScale.querySelector('.scale__control--bigger');
 const scaleControlValue = imgUploadScale.querySelector('.scale__control--value');
 const imgUploadPreview = document.querySelector('.img-upload__preview').querySelector('img');
+
 let replaceValue =scaleControlValue.value.replace('%','');
 
-const changeUploadPreview =() => {
+const changeSizePreview =() => {
   scaleControlSmaller.addEventListener('click',() => {
     replaceValue -= STEP_CHANGE;
     if(replaceValue > 0){
-      scaleControlValue.value = replaceValue;
-      imgUploadPreview.style.scale = scaleControlValue.value/100;
+      scaleControlValue.value = replaceValue + '%';
+      imgUploadPreview.style.scale = scaleControlValue.value;
     }else{
-      scaleControlValue.value = 55;
-      imgUploadPreview.style.scale = scaleControlValue.value/100;
+      scaleControlValue.value = 55 +'%';
+      imgUploadPreview.style.scale = scaleControlValue.value;
     }
   });
   scaleControlBigger.addEventListener('click',() => {
     replaceValue += STEP_CHANGE;
-    scaleControlValue.value = replaceValue;
-    imgUploadPreview.style.scale = scaleControlValue.value/100;
+    scaleControlValue.value = replaceValue + '%';
+    imgUploadPreview.style.scale = scaleControlValue.value;
   }) ;
 };
-changeUploadPreview();
+export{changeSizePreview} ;
