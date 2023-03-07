@@ -5,4 +5,5 @@ import '/js/bigPicture.js';
 import '/js/modalload.js';
 import '/js/modalPhotoSize.js';
 import '/js/choiceModalEffect.js';
-import '/js/hashtagUpload.js';
+import '/js/hashtagModal.js';
+import '/js/commentModal.js';
