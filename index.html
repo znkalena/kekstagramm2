@@ -4,11 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="/nouislider/noUiSlider.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" hrefhref="/nouislider/nouislider.css">
   <title>Кекстаграм</title>
-  <script src="/js/main.js" type="module"></script>
 </head>
 
 <body>
@@ -61,7 +60,7 @@
                   <!-- Изменение глубины эффекта, накладываемого на изображение -->
                   <fieldset class="img-upload__effect-level  effect-level">
                     <input class="effect-level__value" type="number" name="effect-level" value="">
-                    <div class="effect-level__slider" id ="slider"></div>
+                    <div class="effect-level__slider"></div>
                   </fieldset>
 
                   <!-- Кнопка для закрытия формы редактирования изображения -->
@@ -148,7 +147,7 @@
         <div class="big-picture__social  social">
           <div class="social__header">
             <img class="social__picture" src="img/avatar-1.svg" alt="Аватар автора фотографии" width="35" height="35">
-            <p class="social__caption">Тестим новую камеру! =)</p>
+            <p class="social__caption">Тестим новую камеру!</p>
             <p class="social__likes">Нравится <span class="likes-count">356</span></p>
           </div>
 
@@ -180,7 +179,7 @@
         <button type="reset" class="big-picture__cancel  cancel" id="picture-cancel">Закрыть</button>
       </div>
     </section>
-  </main>
+
 
   <footer class="page-footer  container">
     <div class="page-footer__wrapper">
@@ -232,6 +231,9 @@
   <template id="messages">
     <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
   </template>
-  <script src="/nouislider/nouislider.js" type="module"></script>
+</main>
+  <script src="/js/main.js" type="module"></script>
+  <script src="/nouislider/noUiSlider.min.js"></script>
+
 </body>
 </html>
