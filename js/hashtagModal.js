@@ -45,6 +45,6 @@ textHashtags.addEventListener('input',() => {
   }
   textHashtags.reportValidity();
 });
-textHashtags.addEventListener('click',(event) => {
+textHashtags.addEventListener('focus',(event) => {
   event.stopImmediatePropagation();
 })

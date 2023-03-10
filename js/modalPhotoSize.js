@@ -9,18 +9,23 @@ const imgUploadPreview = document.querySelector('.img-upload__preview').querySel
 let replaceValue =scaleControlValue.value.replace('%','');
 
 const increaseSize = scaleControlBigger.addEventListener('click',() => {
-  replaceValue += STEP_CHANGE;
-  scaleControlValue.value = replaceValue + '%';
-  imgUploadPreview.style.scale = scaleControlValue.value;
-});
-
-const reduceSize = scaleControlSmaller.addEventListener('click',() => {
-  replaceValue -= STEP_CHANGE;
-  if(replaceValue > 0){
+  if(replaceValue <STEP_CHANGE*3){
+    replaceValue += STEP_CHANGE;
     scaleControlValue.value = replaceValue + '%';
     imgUploadPreview.style.scale = scaleControlValue.value;
   }else{
-    scaleControlValue.value = 55 +'%';
+    scaleControlValue.value = STEP_CHANGE*4 +'%';
+    imgUploadPreview.style.scale = scaleControlValue.value;
+  }
+});
+
+const reduceSize = scaleControlSmaller.addEventListener('click',() => {
+  if(replaceValue > STEP_CHANGE){
+    replaceValue -= STEP_CHANGE;
+    scaleControlValue.value = replaceValue + '%';
+    imgUploadPreview.style.scale = scaleControlValue.value;
+  }else{
+    scaleControlValue.value = STEP_CHANGE +'%';
     imgUploadPreview.style.scale = scaleControlValue.value;
   }
 });

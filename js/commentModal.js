@@ -10,6 +10,6 @@ textDescription.addEventListener('invalid', () => {
     textDescription.setCustomValidity = '';
   }
 })
-textDescription.addEventListener('click',(event) => {
+textDescription.addEventListener('focus',(event) => {
   event.stopImmediatePropagation();
 })

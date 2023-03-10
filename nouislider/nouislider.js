@@ -1,33 +1,33 @@
 /*! nouislider - 14.6.3 - 11/19/2020 */
 (function(factory) {
-    if (typeof define === "function" && define.amd) {
-        // AMD. Register as an anonymous module.
-        define([], factory);
-    } else if (typeof exports === "object") {
-        // Node/CommonJS
-        module.exports = factory();
-    } else {
-        // Browser globals
-        window.noUiSlider = factory();
-    }
+  if (typeof define === "function" && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([], factory);
+  }else if (typeof exports === "object") {
+    // Node/CommonJS
+    module.exports = factory();
+  } else {
+    // Browser globals
+    window.noUiSlider = factory();
+  }
 })(function() {
-    "use strict";
+  "use strict";
 
-    var VERSION = "14.6.3";
+  var VERSION = "14.6.3";
 
-    //region Helper Methods
+  //region Helper Methods
 
-    function isValidFormatter(entry) {
-        return typeof entry === "object" && typeof entry.to === "function" && typeof entry.from === "function";
-    }
+  function isValidFormatter(entry) {
+    return typeof entry === "object" && typeof entry.to === "function" && typeof entry.from === "function";
+  }
 
-    function removeElement(el) {
-        el.parentElement.removeChild(el);
-    }
+  function removeElement(el) {
+    el.parentElement.removeChild(el);
+  }
 
-    function isSet(value) {
-        return value !== null && value !== undefined;
-    }
+  function isSet(value) {
+    return value !== null && value !== undefined;
+  }
 
     // Bindable version
     function preventDefault(e) {
