@@ -5,10 +5,9 @@ const fieldsetEffects =document.querySelector('.img-upload__effects');
 const radioImputs = fieldsetEffects.querySelectorAll('.effects__radio');
 const imgUploadPpreview = document.querySelector('.img-upload__preview').querySelector('img');
 const effectLevel =document.querySelector('.effect-level__value');
+let effectValue = effectLevel.value;
 
 createSlider();
-
-const sliderValue = effectSlider.noUiSlider.on('update',(values,handle) =>values[handle]);
 
 fieldsetEffects.addEventListener('change',() =>{
   imgUploadPpreview.className = '';
@@ -17,11 +16,7 @@ fieldsetEffects.addEventListener('change',() =>{
       const effect = radioImput.value;
       imgUploadPpreview.classList.add(`effects__preview--${effect}`);
 
-      effectLevel.value = sliderValue;
-
       if(radioImput.value === 'chrome'){
-        imgUploadPpreview.style.filter ='grayscale(0..1)';
-
         effectSlider.noUiSlider.updateOptions({
           range: {
             min: 0,
@@ -29,9 +24,12 @@ fieldsetEffects.addEventListener('change',() =>{
           },
           start:0.5,
           step: 0.1,
+        });
+        effectSlider.noUiSlider.on('update',(values,handle) =>{
+          effectValue = values[handle];
+          imgUploadPpreview.style.filter =`grayscale(${effectValue})`;
         });
       }else if(radioImput.value === 'sepia'){
-        imgUploadPpreview.style.filter ='sepia(0..1)';
         effectSlider.noUiSlider.updateOptions({
           range: {
             min: 0,
@@ -40,8 +38,11 @@ fieldsetEffects.addEventListener('change',() =>{
           start:0.5,
           step: 0.1,
         });
+        effectSlider.noUiSlider.on('update',(values,handle) =>{
+          effectValue = values[handle];
+          imgUploadPpreview.style.filter =`sepia(${effectValue})`;
+        });
       }else if(radioImput.value === 'marvin'){
-        imgUploadPpreview.style.filter ='invert(0..100%)';
         effectSlider.noUiSlider.updateOptions({
           range: {
             min: 1,
@@ -50,8 +51,11 @@ fieldsetEffects.addEventListener('change',() =>{
           start:50,
           step: 1,
         });
+        effectSlider.noUiSlider.on('update',(values,handle) =>{
+          effectValue =Math.round(values[handle]);
+          imgUploadPpreview.style.filter =`invert(${effectValue}%)`;
+        });
       }else if(radioImput.value === 'phobos'){
-        imgUploadPpreview.style.filter ='blur(0..3px)';
         effectSlider.noUiSlider.updateOptions({
           range: {
             min: 1,
@@ -59,9 +63,12 @@ fieldsetEffects.addEventListener('change',() =>{
           },
           start:1.5,
           step: 0.1,
+        });
+        effectSlider.noUiSlider.on('update',(values,handle) =>{
+          effectValue = values[handle];
+          imgUploadPpreview.style.filter =`blur(${effectValue}px)`;
         });
       }else if(radioImput.value === 'heat'){
-        imgUploadPpreview.style.filter ='brightness(1..3)';
         effectSlider.noUiSlider.updateOptions({
           range: {
             min: 1,
@@ -70,13 +77,16 @@ fieldsetEffects.addEventListener('change',() =>{
           start:1.5,
           step: 0.1,
         });
-      }else{
+        effectSlider.noUiSlider.on('update',(values,handle) =>{
+          effectValue = values[handle];
+          imgUploadPpreview.style.filter =`brightness(${effectValue})`;
+        });
+      }else if(radioImput.value === 'none'){
         imgUploadPpreview.style.filter ='';
-      /*  effectSlider.noUiSlider.destroy();*/
+        effectSlider.noUiSlider.destroy();
       }
-    }
-  },
-  )
-});
-
-
+    }/*else{
+      imgUploadPpreview.style.filter ='';
+      effectSlider.noUiSlider.destroy();
+    }*/
+  });});
