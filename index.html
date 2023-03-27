@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Кекстаграм</title>
+//librery
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="/nouislider/noUiSlider.min.css">
+
+//styles
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <title>Кекстаграм</title>
-</head>
+//script librery
+  <script src="/justvalidate/justvalidate.min.js" defer></script>
 
+</head>
 <body>
   <main>
-
     <!-- Фильтрация изображений от других пользователей -->
     <section class="img-filters  img-filters--inactive  container">
       <h2 class="img-filters__title  visually-hidden">Фильтр фотографий</h2>
@@ -117,8 +121,8 @@
 
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег"  minlength="2">
-                  <textarea class="text__description" name="description" placeholder="Ваш комментарий..." maxlength="140" minlength="2"></textarea>
+                  <input class="text__hashtags" id="hashtags" name="hashtags" placeholder="#ХэшТег"  minlength="2">
+                  <textarea class="text__description" id="description" name="description" placeholder="Ваш комментарий..." maxlength="140" minlength="2"></textarea>
                 </fieldset>
 
                 <!-- Кнопка для отправки данных на сервер -->

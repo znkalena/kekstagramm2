@@ -1,4 +1,5 @@
-const textHashtags =document.querySelector('.text__hashtags');
+const uploadText = document.querySelector('.img-upload__text');
+const textHashtags =uploadText.querySelector('.text__hashtags');
 const MAX_LENGTH = 20;
 
 textHashtags.addEventListener('invalid', () =>{
@@ -45,6 +46,6 @@ textHashtags.addEventListener('input',() => {
   }
   textHashtags.reportValidity();
 });
-textHashtags.addEventListener('focus',(event) => {
+/*textHashtags.addEventListener('focus',(event) => {
   event.stopImmediatePropagation();
-})
+})*/

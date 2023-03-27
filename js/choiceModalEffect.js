@@ -83,7 +83,7 @@ fieldsetEffects.addEventListener('change',() =>{
         });
       }else if(radioImput.value === 'none'){
         imgUploadPpreview.style.filter ='';
-        effectSlider.noUiSlider.destroy();
+        /* effectSlider.noUiSlider.destroy();*/
       }
     }/*else{
       imgUploadPpreview.style.filter ='';
