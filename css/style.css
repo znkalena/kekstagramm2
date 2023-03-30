@@ -128,8 +128,8 @@ main {
   display: flex;
 
   -webkit-box-pack: center;
-     -ms-flex-pack: center;
-   justify-content: center;
+    -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .img-filters--inactive {
@@ -504,11 +504,11 @@ main {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-     -ms-flex-align: center;
+    -ms-flex-align: center;
         align-items: center;
   -webkit-box-pack: center;
-     -ms-flex-pack: center;
-   justify-content: center;
+    -ms-flex-pack: center;
+  justify-content: center;
 
   width: 600px;
   height: 600px;
@@ -574,8 +574,8 @@ main {
   display: flex;
 
   -webkit-box-pack: center;
-     -ms-flex-pack: center;
-   justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 
   list-style: none;
   text-align: center;
@@ -780,8 +780,8 @@ main {
 
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-     -ms-flex-direction: column;
-         flex-direction: column;
+    -ms-flex-direction: column;
+        flex-direction: column;
 
   max-width: 600px;
 
@@ -806,11 +806,11 @@ main {
   display: flex;
 
   -webkit-box-pack: start;
-     -ms-flex-pack: start;
-   justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
 
   -webkit-box-align: center;
-     -ms-flex-align: center;
+    -ms-flex-align: center;
         align-items: center;
 
   border-bottom: 1px solid #cccccc;
@@ -882,7 +882,7 @@ main {
 
 .social__comments {
   -ms-flex-preferred-size: 100%;
-               flex-basis: 100%;
+              flex-basis: 100%;
 
   list-style: none;
 
@@ -901,7 +901,7 @@ main {
   display: flex;
 
   -webkit-box-align: center;
-     -ms-flex-align: center;
+    -ms-flex-align: center;
         align-items: center;
 }
 
@@ -1075,12 +1075,12 @@ main {
   display: flex;
 
   -webkit-box-align: start;
-     -ms-flex-align: start;
+    -ms-flex-align: start;
         align-items: flex-start;
 
   -webkit-box-pack: justify;
-     -ms-flex-pack: justify;
-   justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 
@@ -1292,6 +1292,8 @@ main {
 .success__button:active {
   opacity: 0.6;
 }
+
+
 
 
 /**

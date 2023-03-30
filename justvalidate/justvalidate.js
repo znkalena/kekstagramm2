@@ -1,28 +1,31 @@
-
-
-const validator = new window.JustValidate('#upload-select-image');
+const validator = new window.JustValidate('#upload-select-image',{
+  errorLabelCssClass:'modal__input-error',
+  errorLabelStyle: {
+    color: '#ffC700',
+  },
+});
 
 validator.addField('#hashtags',[
   {
     rule: 'minLength',
     value: 3,
-    errorMessage: 'Message should be more than 3 letters.',
+    errorMessage: 'hashtag should be more than 3 letters.',
   },
   {
     rule: 'maxLength',
     value: 20,
-    errorMessage: 'Message should be less than 20 letters.',
+    errorMessage: 'hashtag should be less than 20 letters.',
   },
   {
     rule: 'customRegexp',
-    value: /[a-z]/gi,
+    value:/^#[A-Za-z0-9/s-]+/,
+    errorMessage: 'Message should be letters and numbers.',
   },
 ])
 validator.addField('#description', [
   {
-    validator: (value) => {
-      return value !== undefined && value.length > 3;
-    },
+    rule: 'minLength',
+    value: 3,
     errorMessage: 'Message should be more than 3 letters.',
   },
   {

@@ -1,9 +1,10 @@
-import { createNewPhotos } from './data.js';
+const COUNT_PHOTOS=25;
 
 const tamplatePhotos = document.querySelector('#picture').content.querySelector('.picture');
 const listPhotos = document.querySelector('.pictures');
 
-const newPhotos = createNewPhotos();
+fetch('https://23.javascript.pages.academy/kekstagram/data').then((response)=>response.json()).then((newPhotos)=>
+{createPreviews(newPhotos.slice(0,COUNT_PHOTOS))});
 
 const createPreview = ({url,comments,likes}) => {
   const photoElement = tamplatePhotos.cloneNode(true);
@@ -13,14 +14,14 @@ const createPreview = ({url,comments,likes}) => {
   return photoElement;
 };
 
-const createPreviews = () => {
+const createPreviews = (newPhotos) => {
   let ListPhotosFragment = document.createDocumentFragment();
   newPhotos.forEach((photo) => {
     ListPhotosFragment.appendChild(createPreview(photo));
   });
   listPhotos.appendChild(ListPhotosFragment);
 };
-createPreviews();
-export {createPreviews,newPhotos};
+
+
 
 
