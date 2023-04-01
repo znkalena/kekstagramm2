@@ -9,5 +9,7 @@ import '/js/hashtagModal.js';
 import '/js/commentModal.js';
 import '/js/modalSlider.js';
 import '/justvalidate/justvalidate.js';
+import '/js/api.js';
+
 
 

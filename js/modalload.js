@@ -1,5 +1,5 @@
-import { createPreviews } from './createpreview.js';
-import { isEventEsc } from './util.js';
+import { sendFetch } from './api.js';
+import { isEventEsc} from './util.js';
 
 
 const uploadFile =document.querySelector('#upload-file');
@@ -30,7 +30,7 @@ const openUploadFile = () => {
 
 uploadFile.addEventListener('click',() =>{
   openUploadFile();
-  createPreviews ();
 });
 
+sendFetch(closeUploadFile());
 
