@@ -1,5 +1,7 @@
-import { createPreviews } from './createpreview.js';
+import { createPreviews, listPhotos } from './createpreview.js';
 import { showError } from './util.js';
+import { listPhotoClickHandler} from './bigPicture.js';
+
 
 const COUNT_PHOTOS=25;
 
@@ -7,6 +9,11 @@ const getFetch = ()  => { fetch('https://23.javascript.pages.academy/kekstagram/
   .then((response)=> response.json())
   .then((newPhotos) => {
     createPreviews(newPhotos.slice(0,COUNT_PHOTOS));
+
+    const thumbnails = listPhotos.querySelectorAll('img');
+    for (let i = 0; i < COUNT_PHOTOS; i++) {
+      listPhotoClickHandler(newPhotos[i],thumbnails[i+1]);
+    }
   })
   .catch(() => showError('не удалось получить данные,попробуйте еще раз'))
 };

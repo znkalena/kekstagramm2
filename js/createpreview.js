@@ -18,7 +18,7 @@ export const createPreviews = (newPhotos) => {
     listPhotos.append(createPreview(photo));
   });
 };
-
+export {listPhotos};
 
 
 
