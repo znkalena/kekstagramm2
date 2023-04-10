@@ -2,8 +2,7 @@
 
 const tamplatePhotos = document.querySelector('#picture').content.querySelector('.picture');
 const listPhotos = document.querySelector('.pictures');
-
-
+const COUNT_PHOTOS =25;
 
 const createPreview = ({url,comments,likes}) => {
   const photoElement = tamplatePhotos.cloneNode(true);
@@ -17,6 +16,11 @@ export const createPreviews = (newPhotos) => {
   newPhotos.forEach((photo) => {
     listPhotos.append(createPreview(photo));
   });
+};
+
+export const deletePreviews =() => {
+  for(let i=0;i<COUNT_PHOTOS;i++)
+  {listPhotos.lastChild.remove();}
 };
 export {listPhotos};
 
