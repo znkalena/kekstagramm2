@@ -19,9 +19,12 @@ export const createPreviews = (newPhotos) => {
 };
 
 export const deletePreviews =() => {
-  for(let i=0;i<COUNT_PHOTOS;i++)
-  {listPhotos.lastChild.remove();}
-};
+  for(let i=0;i <COUNT_PHOTOS;i++){
+    let link =listPhotos.querySelector('.picture');
+    let img = listPhotos.querySelector('.picture__img');
+    link.remove(img);
+  }
+}
 export {listPhotos};
 
 

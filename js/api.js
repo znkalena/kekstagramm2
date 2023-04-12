@@ -5,7 +5,9 @@ import { getDefaultPhotos, getPhotosWithMuchComments, getRandomPhotos } from './
 import { muchCommentsPhotos,defaultPhotos,randomPhotos } from './filtres.js';
 
 const COUNT_PHOTOS=25;
-const filterImg = document.querySelector('.img-filters');
+const RERENDER_DELAY =500;
+export const filterImg = document.querySelector('.img-filters');
+
 
 
 const getFetch = ()  => { fetch('https://23.javascript.pages.academy/kekstagram/data')
@@ -13,20 +15,25 @@ const getFetch = ()  => { fetch('https://23.javascript.pages.academy/kekstagram/
   .then((newPhotos) => {
 
     createPreviews(newPhotos.slice(0,COUNT_PHOTOS));
-    getPhotosWithMuchComments(() =>createPreviews(muchCommentsPhotos),newPhotos);
-    getDefaultPhotos(() =>createPreviews(defaultPhotos),newPhotos);
-    getRandomPhotos(() =>createPreviews(randomPhotos),newPhotos);
-
-    filterImg.classList.remove('img-filters--inactive');
 
     for (let i = 0; i < COUNT_PHOTOS; i++) {
       const thumbnails = listPhotos.querySelectorAll('img');
       listPhotoClickHandler(newPhotos[i],thumbnails[i+1]);
-    }
+      };
 
+    getPhotosWithMuchComments(_.debounce(() =>createPreviews(muchCommentsPhotos),RERENDER_DELAY),newPhotos);
+
+
+    getDefaultPhotos(_.debounce(() =>createPreviews(defaultPhotos),RERENDER_DELAY),newPhotos);
+
+
+    getRandomPhotos(_.debounce(() =>createPreviews(randomPhotos),RERENDER_DELAY),newPhotos);
+
+    filterImg.classList.remove('img-filters--inactive');
   })
   .catch(() => showError('не удалось получить данные,попробуйте еще раз'))
 };
+
 getFetch();
 
 const userForm = document.querySelector('.img-upload__form');

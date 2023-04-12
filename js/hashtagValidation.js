@@ -1,20 +1,21 @@
-const uploadText = document.querySelector('.img-upload__text');
-const textHashtags =uploadText.querySelector('.text__hashtags');
+const textHashtags =document.querySelector('#hashtags');
 const MAX_LENGTH = 20;
 
-textHashtags.addEventListener('invalid', () =>{
+/*textHashtags.addEventListener('invalid', () =>{
   if(textHashtags.validity.valueMissing){
     textHashtags.setCustomValidity('Обязательное поле');
   }
   else{
-    textHashtags.setCustomValidity = '';
+    textHashtags.setCustomValidity() = '';
   }
-});
-
+});*/
+console.log(textHashtags.value);
 textHashtags.addEventListener('input',() => {
   let value = textHashtags.value;
+
   let textInput = value.toLowerCase().trim('');
-  let imputArray = textInput.split(/\s+/);
+});
+  /*let imputArray = textInput.split(/\s+/);
 
 
   if(imputArray.length === 0){
@@ -28,11 +29,11 @@ textHashtags.addEventListener('input',() => {
     textHashtags.setCustomValidity('Имя должно начинаться с #')
   }
 
-  /* const isSpaceBetween = imputArray.some(item => item.indexOff('#',1));
+  const isSpaceBetween = imputArray.some(item => item.indexOff('#',1));
 
   if(isSpaceBetween){
     textHashtags.setCustomValidity('между # должен быть пробел')
-  }*/
+  }
 
   const isLongHashtag = imputArray.some(item => item.length <= MAX_LENGTH );
 
@@ -40,14 +41,14 @@ textHashtags.addEventListener('input',() => {
     textHashtags.setCustomValidity('Длина # не более 20 символов');
   }
 
-  /*const repeatHashtag = imputArray.filter((elem,index,arr) => arr.indexOff(elem) !== index);
+  const repeatHashtag = imputArray.filter((elem,index,arr) => arr.indexOff(elem) !== index);
   if(repeatHashtag){
     textHashtags.setCustomValidity('хэштэги не должны повторяться')
   }else{
     textHashtags.setCustomValidity('');
   }
-  textHashtags.reportValidity();*/
+  textHashtags.reportValidity();
 });
-/*textHashtags.addEventListener('focus',(event) => {
+textHashtags.addEventListener('focus',(event) => {
   event.stopImmediatePropagation();
 })*/

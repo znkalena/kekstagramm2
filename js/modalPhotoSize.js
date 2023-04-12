@@ -1,33 +1,38 @@
 import { STEP_CHANGE } from './data.js';
+import { imgPreview } from './imgload.js';
 
-const imgUploadScale = document.querySelector('.img-upload__scale');
-const scaleControlSmaller = imgUploadScale.querySelector('.scale__control--smaller');
-const scaleControlBigger = imgUploadScale.querySelector('.scale__control--bigger');
-const scaleControlValue = imgUploadScale.querySelector('.scale__control--value');
-const imgUploadPreview = document.querySelector('.img-upload__preview').querySelector('img');
+const UploadScale = document.querySelector('.img-upload__scale');
+const scaleControlSmaller = UploadScale.querySelector('.scale__control--smaller');
+const scaleControlBigger = UploadScale.querySelector('.scale__control--bigger');
+const scaleControlValue = UploadScale.querySelector('.scale__control--value');
+const SCALE_MAX =100;
+const SCALE_MIN =0.25;
 
-let replaceValue =scaleControlValue.value.replace('%','');
+let replaceValue =Number(scaleControlValue.value.replace('%',''));
 
-const increaseSize = scaleControlBigger.addEventListener('click',() => {
-  if(replaceValue <STEP_CHANGE*3){
+
+scaleControlBigger.addEventListener('click',() => {
+  if(replaceValue <STEP_CHANGE * 3){
     replaceValue += STEP_CHANGE;
     scaleControlValue.value = replaceValue + '%';
-    imgUploadPreview.style.scale = scaleControlValue.value;
+    imgPreview.style.scale = replaceValue/SCALE_MAX;
   }else{
-    scaleControlValue.value = STEP_CHANGE*4 +'%';
-    imgUploadPreview.style.scale = scaleControlValue.value;
+    replaceValue = SCALE_MAX;
+    scaleControlValue.value = SCALE_MAX +'%';
+    imgPreview.style.scale = 1;
   }
+  return replaceValue;
 });
 
-const reduceSize = scaleControlSmaller.addEventListener('click',() => {
+scaleControlSmaller.addEventListener('click',() => {
   if(replaceValue > STEP_CHANGE){
     replaceValue -= STEP_CHANGE;
     scaleControlValue.value = replaceValue + '%';
-    imgUploadPreview.style.scale = scaleControlValue.value;
+    imgPreview.style.scale = replaceValue/SCALE_MAX;
   }else{
     scaleControlValue.value = STEP_CHANGE +'%';
-    imgUploadPreview.style.scale = scaleControlValue.value;
+    imgPreview.style.scale = SCALE_MIN;
   }
+  return replaceValue;
 });
 
-export{increaseSize,reduceSize} ;

@@ -16,11 +16,6 @@ validator.addField('#hashtags',[
     value: 20,
     errorMessage: 'hashtag should be less than 20 letters.',
   },
-  {
-    rule: 'customRegexp',
-    value:/^#[A-Za-z0-9/s-]+/,
-    errorMessage: 'Message should be letters and numbers.',
-  },
 ])
 validator.addField('#description', [
   {

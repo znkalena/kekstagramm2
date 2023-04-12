@@ -1,4 +1,5 @@
 import { isEventEsc } from './util.js';
+import { listPhotos } from './createpreview.js';
 
 const bigPictureSection = document.querySelector('.big-picture');
 const bigPicture = bigPictureSection.querySelector('.big-picture__img');
@@ -12,16 +13,28 @@ const listComments =document.querySelector('.social__comments');
 const pictureCancel = document.querySelector('#picture-cancel');
 const avatarPicture = document.querySelector('.social__picture');
 const socialCommentsLoaderBtn = document.querySelector('.social__comments-loader');
+const commentCountFirst = document.querySelector('.comments-count--first');
+
+
 
 export const listPhotoClickHandler = (newPhoto,thumbnail) => {
   thumbnail.addEventListener('click',() => {
+    console.log(newPhoto);
+    console.log(thumbnail);
     body.classList.add('modal-open');
     bigPictureSection.classList.remove('hidden');
     fullPhoto.src = thumbnail.src;
     avatarPicture.src = newPhoto.url;
     likesCount.textContent =newPhoto.likes;
-    commentsCount.textContent = newPhoto.comments.length;
+    let commentsLength = newPhoto.comments.length;
+    commentsCount.textContent = commentsLength;
     socialCaption.textContent= newPhoto.description;
+    if(commentsLength <= 5){
+      commentCountFirst.textContent = '';
+      socialCommentsLoaderBtn.style.display = 'none';
+    }else {
+      commentCountFirst.textContent = '5 из';
+    }
 
     listComments.innerHTML ='';
     socialCommentsLoaderBtn.style.display = 'block';
@@ -58,8 +71,9 @@ export const listPhotoClickHandler = (newPhoto,thumbnail) => {
       }
       socialCommentsLoaderBtn.style.display = 'none';
     });
-  });
-};
+  })
+  };
+
 
 pictureCancel.addEventListener('click',() => {
   bigPictureSection.classList.add('hidden');

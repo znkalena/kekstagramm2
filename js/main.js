@@ -5,11 +5,11 @@ import '/js/bigPicture.js';
 import '/js/modalload.js';
 import '/js/modalPhotoSize.js';
 import '/js/choiceModalEffect.js';
-import '/js/hashtagModal.js';
-import '/js/commentModal.js';
+import '/js/hashtagValidation.js';
+import '/js/commentValidation.js';
 import '/js/modalSlider.js';
-import '/justvalidate/justvalidate.js';
+//import '/justvalidate/justvalidate.js';
 import '/js/api.js';
 import '/js/filtres.js';
-
+import '/js/imgload.js';
 
