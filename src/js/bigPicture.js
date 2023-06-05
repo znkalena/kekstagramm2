@@ -80,7 +80,7 @@ pictureCancel.addEventListener('click',() => {
 });
 
 document.addEventListener('keydown',(evt) =>{
-  if(isEventEsc){
+  if(isEventEsc(evt)){
     evt.preventDefault();
     bigPictureSection.classList.add('hidden');
   }
