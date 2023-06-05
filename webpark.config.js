@@ -1,9 +1,11 @@
+import path from 'path';
+
 const path = require('path');
 
 module.exports={
-entry:'/dist/main.js',
+entry:'/source/js/index.js',
 output:{
     filename: 'main.bundle.js',
-    path: path.resolve(__dirname,'src'),
+    path: path.resolve(__dirname,'dist'),
 }
 };
